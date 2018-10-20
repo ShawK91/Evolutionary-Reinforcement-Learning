@@ -11,10 +11,10 @@ Mujoco-py v1.50.1.59
 
 
 
-#### To Run #### \
-python run_erl.py -env $ENV_NAME$ \
+#### To Run #### 
+python run_erl.py -env $ENV_NAME$ 
 
-#### ENVS TESTED #### \
+#### ENVS TESTED #### 
 'Hopper-v2' \
 'HalfCheetah-v2' \
 'Swimmer-v2' \
