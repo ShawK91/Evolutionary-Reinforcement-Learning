@@ -71,7 +71,7 @@ class SSNE:
 
 
     def mutate_inplace(self, gene):
-        mut_strength = 0.05
+        mut_strength = 0.1
         num_mutation_frac = 0.1
         super_mut_strength = 10
         super_mut_prob = 0.05
