@@ -1,23 +1,39 @@
-# erl_paper_nips18
-Code accompanying the paper "Evolution-Guided Policy Gradients in Reinforcement Learning" accepted at NIPS 2018
 
-###### Dependencies #######
-Python 3.5.6 \
-Pytorch 0.3.1.post3 \
-Numpy 1.15.2 \
-Fastrand from https://github.com/lemire/fastrand \
-Gym 0.10.5 \
+The master branch introduces many additions from the NeurIPS paper published in 2018 and improves both runtime and algorithmic performance. The primary changes are detailed below:
+1. Parallleized rollouts using multiprocessing
+2. Soft-Actor Critic (SAC) https://arxiv.org/abs/1801.01290 replacing the DDPG used originally
+3. Support for Discrete Environments using a form of DDQN + Maximum Entropy Reinforcement Learning
+
+Please switch to the neurips_paper_2018 branch to reproduce the results from the paper https://papers.nips.cc/paper/7395-evolution-guided-policy-gradient-in-reinforcement-learning.pdf
+
+
+## Dependencies Tested on ##
+Python 3.6.9 \
+Pytorch 1.2 \
+Numpy 1.18.1 \
+Gym 0.15.6 \
 Mujoco-py v1.50.1.59
 
+## To Run ##
+python main.py --env $ENV_NAME$ 
 
+## Environment name examples to get you started ##
 
-#### To Run #### 
-python run_erl.py -env $ENV_NAME$ 
-
-#### ENVS TESTED #### 
+#### Continous ###
+'Humanoid-v2' \
 'Hopper-v2' \
 'HalfCheetah-v2' \
 'Swimmer-v2' \
 'Ant-v2' \
 'Walker2d-v2' \
-'Reacher-v2'
+'Reacher-v2' \
+
+#### Discrete ####
+'CartPole-v1' \
+'Pong-ram-v0' \
+'Qbert-ram-v0' \
+'MountainCar-v0' 
+
+## To use your own custom environment ##
+
+Write a gym-compatible wrapper around your environment and register it with the gym runtime  
