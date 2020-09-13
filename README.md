@@ -27,7 +27,7 @@ python main.py --env $ENV_NAME$
 'Swimmer-v2' \
 'Ant-v2' \
 'Walker2d-v2' \
-'Reacher-v2' \
+'Reacher-v2' 
 
 #### Discrete ####
 'CartPole-v1' \
