@@ -12,7 +12,8 @@ Python 3.6.9 \
 Pytorch 1.2 \
 Numpy 1.18.1 \
 Gym 0.15.6 \
-Mujoco-py v1.50.1.59
+Mujoco-py v1.50.1.59 \
+Tensorboard
 
 ## To Run ##
 python main.py --env $ENV_NAME$ 

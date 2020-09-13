@@ -5,6 +5,7 @@ from core import utils
 from core.runner import rollout_worker
 from torch.multiprocessing import Process, Pipe, Manager
 from core.buffer import Buffer
+import torch
 
 
 class ERL_Trainer:
@@ -14,6 +15,7 @@ class ERL_Trainer:
 		self.args = args
 		self.policy_string = 'CategoricalPolicy' if env_constructor.is_discrete else 'Gaussian_FF'
 		self.manager = Manager()
+		self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 		#Evolution
 		self.evolver = SSNE(self.args)
@@ -86,7 +88,7 @@ class ERL_Trainer:
 		for rollout_id in range(len(self.rollout_bucket)):
 			utils.hard_update(self.rollout_bucket[rollout_id], self.learner.actor)
 			self.task_pipes[rollout_id][0].send(0)
-		self.learner.actor.cuda()
+		self.learner.actor.to(device=self.device)
 
 		#Start Test rollouts
 		if gen % self.args.test_frequency == 0:
